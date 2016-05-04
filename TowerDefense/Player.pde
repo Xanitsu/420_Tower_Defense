@@ -8,6 +8,8 @@ class Player {
   ArrayList<Tile> path;
   boolean findPath = true;
   boolean isDead = false;
+  int health = 15;
+
 
   Player() {
     teleportTo(gridP);
@@ -19,6 +21,15 @@ class Player {
       this.gridT = gridP.get();
       this.pixlP = tile.getCenter();
     }
+  }
+  
+
+   void hurt() {
+    health --;
+   if (health == 0){
+     isDead = true;
+     //println(health);
+   }
   }
 
   void setTargetPosition(Point gridT) {
